@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1fQLy3h+PpWBBsOQGlGodgPk+hgPwAKDgcgWltu6j9SF1W8HnKNYW/LhyiIxlXhUzDAsSL15zCfOdsMM2ZVFUQ==",
+  "dgSpecHash": "EBRpOu2pGhHCLLU4BS2SsAUzxcr1QHy5eJSpPvyOEXQ/T0uv54L9kC3bYy8969h/e4z5nglXWlKJyikRsBLP1Q==",
   "success": true,
-  "projectFilePath": "C:\\git\\projects\\MyFirstProject\\src\\myWebApp.csproj",
+  "projectFilePath": "c:\\git\\projects\\MyFirstDockerProject\\src\\myWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\semen\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\semen\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",

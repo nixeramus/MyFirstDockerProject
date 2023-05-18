@@ -663,11 +663,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\projects\\MyFirstProject\\src\\myWebApp.csproj",
+      "projectUniqueName": "c:\\git\\projects\\MyFirstDockerProject\\src\\myWebApp.csproj",
       "projectName": "myWebApp",
-      "projectPath": "C:\\git\\projects\\MyFirstProject\\src\\myWebApp.csproj",
+      "projectPath": "c:\\git\\projects\\MyFirstDockerProject\\src\\myWebApp.csproj",
       "packagesPath": "C:\\Users\\semen\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\projects\\MyFirstProject\\src\\obj\\",
+      "outputPath": "c:\\git\\projects\\MyFirstDockerProject\\src\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -10,5 +10,16 @@
 </div>
 
 <div class="row mb-auto">
-    <p>Student Name is @Model.StudentName</p>
+    @if (Model.Students != null)
+{
+
+    @foreach (var item in Model.Students)
+    {
+        <p>Student Name is @item.LastName + " " + @item.FirstMidName</p>
+    }
+}
+else
+{
+     <p>Не удалось вычитать</p>
+}
 </div>

@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using myWebApp.Models;
+using myWebApp.Reciever;
 
 namespace myWebApp.Pages;
 
 public class IndexModel : PageModel
     {
         public string StudentName { get; private set; } = "PageModel in C#";
+
+         public List<Student> Students { get; private set; } 
         private readonly ILogger<IndexModel> _logger;
         
 
@@ -16,10 +19,22 @@ public class IndexModel : PageModel
           
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            //var s =_context.Students?.Where(d=>d.ID==1).FirstOrDefault();
-            var s=new Student();
-            this.StudentName = $"{s?.FirstMidName} {s?.LastName}";
+           // string apiUrl = "http://api:80"; // Замените на URL вашего API
+
+            string apiUrl = " http://localhost:5001"; // Замените на URL вашего API
+          
+            var studentRepository = new StudentRepository(apiUrl);
+
+            // Ваш код обработки страницы
+
+            List<Student> students = await studentRepository.GetStudentsAsync();
+            // Дальнейший код обработки полученных студентов
+            Students= students;
+            return Page();
         }
+
+
+        
     }

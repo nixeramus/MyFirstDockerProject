@@ -22,3 +22,9 @@ jobs:
       
     - name: Build the Docker image UI
       run: docker build . --file ./ui/Dockerfile --tag nixeramus/ui:latest
+      
+    - name: Push API Docker image to Docker Hub
+      run: docker push nixeramus/api:latest
+      
+    - name: Push UI Docker image to Docker Hub
+      run: docker push nixeramus/ui:latest

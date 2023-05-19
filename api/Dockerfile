@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 as build-env
 WORKDIR /api 
 COPY ./api/*.csproj .
 RUN dotnet restore
-COPY . .
+COPY ./api .
 RUN dotnet publish -c Release -o /publish
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
 WORKDIR /publish

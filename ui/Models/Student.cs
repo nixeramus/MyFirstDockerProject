@@ -4,9 +4,9 @@ namespace myWebApp.Models
 {
   public class Student
   {
-    public int ID { get; set; }
-    public string LastName { get; set; }
-    public string FirstMidName { get; set; }
+    public int id { get; set; }
+    public string lastName { get; set; }
+    public string firstMidName { get; set; }
     public DateTime EnrollmentDate { get; set; }
   }
 }

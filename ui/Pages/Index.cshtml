@@ -1,12 +1,12 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Главная";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Привет</h1>
+    <p>Отображается список студентов из базы </p>
 </div>
 
 <div class="row mb-auto">
@@ -15,11 +15,11 @@
 
     @foreach (var item in Model.Students)
     {
-        <p>Student Name is @item.LastName + " " + @item.FirstMidName</p>
+        <p>Student Name is @item.id + @item.lastName  @item.firstMidName</p>
     }
 }
 else
 {
-     <p>Не удалось вычитать</p>
+     <p>В базе нет записей</p>
 }
 </div>

@@ -1,0 +1,30 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Build the Docker image API
+      run: docker build . --file ./api/Dockerfile --tag nixeramus/api:latest
+      
+    - name: Build the Docker image UI
+      run: docker build . --file ./ui/Dockerfile --tag nixeramus/ui:latest
+      
+    - name: Push API Docker image to Docker Hub
+      run: docker push nixeramus/api:latest
+      
+    - name: Push UI Docker image to Docker Hub
+      run: docker push nixeramus/ui:latest

@@ -17,6 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     
+    - name: Login to Docker Hub
+      run: docker login -u nixeramus -p ${{ secrets.DOCKERHUB_TOKEN }}
+        
     - name: API Build the Docker image 
       run: docker build . --file ./api/Dockerfile --tag nixeramus/api:latest
       
@@ -24,7 +27,7 @@ jobs:
       run: docker build . --file ./ui/Dockerfile --tag nixeramus/ui:latest
       
     - name: API Push  Docker image to Docker Hub 
-      run: docker login -u nixeramus -p ${{ secrets.DOCKERHUB_TOKEN }} && docker push nixeramus/api:latest
+      run: docker push nixeramus/api:latest
       
     - name: UI Push  Docker image to Docker Hub 
-      run: docker login -u nixeramus -p ${{ secrets.DOCKERHUB_TOKEN }} && docker push nixeramus/ui:latest
+      run: docker push nixeramus/ui:latest

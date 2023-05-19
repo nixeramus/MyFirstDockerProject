@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using myWebApp.Models;
 using myWebApp.Reciever;
+using Microsoft.Extensions.Configuration;
 
 namespace myWebApp.Pages;
 
 public class IndexModel : PageModel
     {
-        public string StudentName { get; private set; } = "PageModel in C#";
 
          public List<Student> Students { get; private set; } 
         private readonly ILogger<IndexModel> _logger;
@@ -21,9 +21,12 @@ public class IndexModel : PageModel
 
         public async Task<IActionResult> OnGetAsync()
         {
-           // string apiUrl = "http://api:80"; // Замените на URL вашего API
 
-            string apiUrl = " http://localhost:5001"; // Замените на URL вашего API
+            var config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            string apiUrl = config["ApiSettings:ApiUrl"];
           
             var studentRepository = new StudentRepository(apiUrl);
 

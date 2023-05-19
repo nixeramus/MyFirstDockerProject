@@ -8,11 +8,6 @@ services:
      - postgres-data:/var/lib/postgresql/data
    ports:
      - 5432:5432
-# adminer:
-#   image: adminer
-#   restart: always
-#   ports:
-#     - 8080:8080
  api:
    build:
      context: ./api
@@ -30,7 +25,7 @@ services:
    ports:
      - 5002:80
    depends_on:
-     - db
+     - api
 
 volumes:
  postgres-data:

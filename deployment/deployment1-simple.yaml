@@ -1,11 +1,11 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: my-api-deployment-replicas
+  name: my-api-deployment
   labels:
     app: my-k8s-application
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: api

@@ -1,8 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Newtonsoft.Json;
 using api.Data;
+using HealthChecks.NpgSql;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connectionString=builder.Configuration.GetConnectionString("SchoolContext");
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -11,7 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-   options.UseNpgsql(builder.Configuration.GetConnectionString("SchoolContext")));
+   options.UseNpgsql(connectionString));
+
+builder.Services.AddHealthChecks()
+.AddNpgSql(connectionString);
+
 
 var app = builder.Build();
 
@@ -20,6 +27,8 @@ using (var scope = app.Services.CreateScope())
    var services = scope.ServiceProvider;
    try
    {
+
+       
        // add 10 seconds delay to ensure the db server is up to accept connections
        // this won't be needed in real world application
        System.Threading.Thread.Sleep(10000);
@@ -43,8 +52,20 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
+app.UseHealthChecks("/health", new HealthCheckOptions
+        {
+            ResponseWriter = async (context, report) =>
+            {
+                var result = JsonConvert.SerializeObject(
+                    new { status = report.Status.ToString() }
+                );
+                context.Response.ContentType = "application/json";
+                await context.Response.WriteAsync(result);
+            }
+        });
+        
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

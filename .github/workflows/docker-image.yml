@@ -22,6 +22,7 @@ jobs:
         
     - name: API Build the Docker image 
       run: docker build . --file ./api/Dockerfile --tag nixeramus/api:latest
+      working-directory: ./api
       
     - name: UI Build the Docker image 
       run: docker build . --file ./ui/Dockerfile --tag nixeramus/ui:latest

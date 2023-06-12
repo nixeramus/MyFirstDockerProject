@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+  labels:
+    app: my-k8s-application
+data:
+    POSTGRES_PASSWORD: example
+    ASPNETCORE_ENVIRONMENT: Development

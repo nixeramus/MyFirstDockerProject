@@ -5,7 +5,7 @@ metadata:
   labels:
     app: my-k8s-application
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: api
@@ -22,4 +22,4 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 80
+        - containerPort: 5001

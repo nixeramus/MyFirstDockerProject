@@ -33,7 +33,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: my-api-deployment-autoscaling
-  minReplicas: 2
+  minReplicas: 1
   maxReplicas: 6
   metrics:
   - type: Resource

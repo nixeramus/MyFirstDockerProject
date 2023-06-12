@@ -5,5 +5,5 @@ metadata:
   labels:
     app: my-k8s-application
 data:
-    POSTGRES_PASSWORD: example
     ASPNETCORE_ENVIRONMENT: Development
+    DefaultConnection : "Host=db;Database=my_db;Username=postgres;Password=example"

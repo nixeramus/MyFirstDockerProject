@@ -5,7 +5,7 @@ using api.Data;
 using HealthChecks.NpgSql;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString=builder.Configuration.GetConnectionString("SchoolContext");
+var connectionString=builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
 
 builder.Services.AddControllers();

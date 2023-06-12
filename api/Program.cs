@@ -5,9 +5,10 @@ using api.Data;
 using HealthChecks.NpgSql;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var connectionString=builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
-
+Console.WriteLine($"Connection string: {connectionString}");
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -21,6 +22,8 @@ builder.Services.AddHealthChecks()
 
 
 var app = builder.Build();
+
+Console.WriteLine($"Try to add");
 
 using (var scope = app.Services.CreateScope())
 {
